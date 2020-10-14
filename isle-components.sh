@@ -2,10 +2,10 @@
 
 function images_up {
     [[ ${1} ]] && local SET_BG="-d"
-    docker run -p 8083:8080 \
+    docker run -p 8080:8080 \
         --name image-services \
         --env-file /home/ubuntu/envs.env \
-        islandoracollabgroup/isle-imageservices:1.5.1
+        ${SET_BG} fsu-imageservices:1.0
 }
 
 function apache_up {
@@ -75,7 +75,7 @@ case "${1}" in
     blazegraph)
         blaze_up ${2}
         ;;
-    images)
+    image-services)
         images_up ${2}
         ;;
 esac
