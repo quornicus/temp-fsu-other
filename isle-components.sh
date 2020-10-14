@@ -4,7 +4,7 @@ function images_up {
     [[ ${1} ]] && local SET_BG="-d"
     docker run -p 8080:8080 \
         --name image-services \
-        --env-file /home/ubuntu/envs.env \
+        --env-file /home/ubuntu/temp-fsu-other/all-envs.env \
         ${SET_BG} fsu-imageservices:1.0
 }
 
